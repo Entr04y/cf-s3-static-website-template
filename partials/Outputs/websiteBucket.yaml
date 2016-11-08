@@ -1,0 +1,8 @@
+Outputs:
+  websiteBucket:
+    Description: S3 bucket to place static files in.
+    Value:
+      Ref: websiteBucket
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-websiteBucket"

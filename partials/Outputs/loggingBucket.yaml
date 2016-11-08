@@ -1,0 +1,8 @@
+Outputs:
+  logBucket:
+    Description: S3 Bucket for S3 and cloudfront web access logs.
+    Value:
+      Ref: logBucket
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-logBucket"

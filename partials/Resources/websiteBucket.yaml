@@ -1,0 +1,19 @@
+Resources:
+  websiteBucket:
+    Type: "AWS::S3::Bucket"
+
+    Properties:
+      AccessControl: "PublicRead"
+      WebsiteConfiguration:
+        IndexDocument: "index.html"
+        ErrorDocument: "404.html"
+        RoutingRules:
+          -
+            RedirectRule:
+              ReplaceKeyWith: "index.html"
+            RoutingRuleCondition: 
+              KeyPrefixEquals: "/"
+      LoggingConfiguration:
+        DestinationBucketName:
+          Ref: logBucket
+        LogFilePrefix: "s3-" 

@@ -1,0 +1,8 @@
+Outputs:
+  acmCertificate:
+    Description: The ACM Certificate created for the stack
+    Value:
+      Ref: websiteCert
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-websiteCert"

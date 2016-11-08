@@ -1,0 +1,8 @@
+Resources:
+  websiteCert:
+    Type: "AWS::CertificateManager::Certificate"
+    Properties:
+      DomainName:
+        Ref: hostedZoneName
+      SubjectAlternativeNames:
+        Ref: websiteHostNames

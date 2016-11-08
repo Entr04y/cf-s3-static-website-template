@@ -1,0 +1,17 @@
+Outputs:
+  cloudfrontDistId:
+    Description: The cloudfront distribution ID.
+    Value:
+      Ref: cloudfrontDist
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-cfDistId"
+
+  cloudfrontDomainName:
+    Description: The cloudfront distribution DNS name.
+    Value:
+      "Fn::GetAtt": [ cloudfrontDist, DomainName ]
+    Export:
+      Name:
+        "Fn::Sub": "${AWS::StackName}-cfDistDns" 
+

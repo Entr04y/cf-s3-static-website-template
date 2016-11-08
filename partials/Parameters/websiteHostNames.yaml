@@ -1,0 +1,8 @@
+Parameters:
+  websiteHostNames:
+    Description: Comma seperated host names for the website, including cnames. The first one in the list will be used to create A DNS record pointing to the cloudfront distribution. 
+    Type: "CommaDelimitedList"
+
+  hostedZoneName:
+    Description: Name of the hosted zone to create dns entry in.
+    Type: "String"

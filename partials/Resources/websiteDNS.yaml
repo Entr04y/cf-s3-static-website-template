@@ -1,0 +1,14 @@
+Resources:
+  websiteDNS:
+    Type: "AWS::Route53::RecordSet"
+    Properties:
+      AliasTarget:
+        DNSName:
+          "Fn::GetAtt": [ cloudfrontDist, DomainName ]
+        EvaluateTargetHealth: False
+        HostedZoneId: Z2FDTNDATAQYW2
+      HostedZoneName:
+        "Fn::Join": [ "", [ Ref: hostedZoneName, "." ] ]
+      Name:
+        "Fn::Select": [ 0, Ref: websiteHostNames ]
+      Type: A
