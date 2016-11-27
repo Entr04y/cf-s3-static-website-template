@@ -12,3 +12,14 @@ Resources:
       Name:
         "Fn::Select": [ 0, Ref: websiteHostNames ]
       Type: A
+  websiteCNAME:
+    Type: "AWS::Route53::RecordSet"
+    Properties:
+      Name:
+        Fn::Join: [ "", [ "www.", Ref: hostedZoneName, "." ] ]
+      Type: CNAME
+      HostedZoneName:
+        "Fn::Join": [ "", [ Ref: hostedZoneName, "." ] ]
+      ResourceRecords:
+        - Fn::Join: [ "", [ Ref: hostedZoneName, "." ] ]
+      TTL: 30

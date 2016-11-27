@@ -19,6 +19,75 @@ Resources:
           Bucket:
             "Fn::GetAtt": [ logBucket, DomainName ]
           Prefix: "cflogs"
+        CacheBehaviors:
+          - ViewerProtocolPolicy: redirect-to-https
+            DefaultTTL: 604800
+            AllowedMethods:
+              - HEAD
+              - GET
+            CachedMethods:
+              - HEAD
+              - GET
+            MinTTL: 0
+            Compress: True
+            ForwardedValues:
+              QueryString: False
+              Cookies:
+                Forward: none
+            TargetOriginId:
+              Ref: websiteBucket
+            PathPattern: /css/*.css
+          - ViewerProtocolPolicy: redirect-to-https
+            DefaultTTL: 604800
+            AllowedMethods:
+              - HEAD
+              - GET
+            CachedMethods:
+              - HEAD
+              - GET
+            MinTTL: 0
+            Compress: True
+            ForwardedValues:
+              QueryString: False
+              Cookies:
+                Forward: none
+            TargetOriginId:
+              Ref: websiteBucket
+            PathPattern: /js/*.js
+          - ViewerProtocolPolicy: redirect-to-https
+            DefaultTTL: 86400
+            AllowedMethods:
+              - HEAD
+              - GET
+            CachedMethods:
+              - HEAD
+              - GET
+            MinTTL: 0
+            Compress: True
+            ForwardedValues:
+              QueryString: False
+              Cookies:
+                Forward: none
+            TargetOriginId:
+              Ref: websiteBucket
+            PathPattern: '*.jpg'
+          - ViewerProtocolPolicy: redirect-to-https
+            DefaultTTL: 86400
+            AllowedMethods:
+              - HEAD
+              - GET
+            CachedMethods:
+              - HEAD
+              - GET
+            MinTTL: 0
+            Compress: True
+            ForwardedValues:
+              QueryString: False
+              Cookies:
+                Forward: none
+            TargetOriginId:
+              Ref: websiteBucket
+            PathPattern: '*.png'
         DefaultCacheBehavior:
           ViewerProtocolPolicy: redirect-to-https
           DefaultTTL: 1800
@@ -52,7 +121,7 @@ Resources:
             ResponseCode: 404
             ResponsePagePath: "/404.html"
         DefaultRootObject: "index.html"
-        PriceClass: "PriceClass_All"
+        PriceClass: "PriceClass_100"
         Enabled: True
         
 

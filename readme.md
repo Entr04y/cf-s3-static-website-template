@@ -16,8 +16,7 @@ You can then upload your static website files to the website directory.  The tem
 
 ## Requirements
 
-* The DNS for the primary hostname is in a Route53 Hosted zone
-* The Hosted Zone is already created
+* The DNS for the primary hostname is in an existing Route53 Hosted zone
 * The DNS entry for the primary hostname cannot already exist in Route53
 * You have access to a domain contact email for every domain that you include in the websiteHostedNames parameter to approve the ACM certificate.
 
